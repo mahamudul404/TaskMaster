@@ -29,7 +29,7 @@
                     <div class="card text-white bg-info mb-3">
                         <div class="card-header">Pending Tasks</div>
                         <div class="card-body">
-                            <h5 class="card-title">{{ $pendingTasks ?? 0 }}</h5>
+                            <h5 class="card-title">{{ $pendingCount ?? 0 }}</h5>
                         </div>
                     </div>
                 </div>
@@ -37,7 +37,7 @@
                     <div class="card text-white bg-warning mb-3">
                         <div class="card-header">In Progress</div>
                         <div class="card-body">
-                            <h5 class="card-title">{{ $inProgressTasks ?? 0 }}</h5>
+                            <h5 class="card-title">{{ $inProgressCount ?? 0 }}</h5>
                         </div>
                     </div>
                 </div>
@@ -45,7 +45,7 @@
                     <div class="card text-white bg-success mb-3">
                         <div class="card-header">Completed Tasks</div>
                         <div class="card-body">
-                            <h5 class="card-title">{{ $completedTasks ?? 0 }}</h5>
+                            <h5 class="card-title">{{ $completedCount ?? 0 }}</h5>
                         </div>
                     </div>
                 </div>

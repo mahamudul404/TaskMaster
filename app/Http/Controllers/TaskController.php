@@ -89,4 +89,18 @@ class TaskController extends Controller
         $task->delete();
         return redirect()->route('tasks.index');
     }
+
+    public function welcome()
+    {
+        // Get the logged-in user's ID
+        $userId = Auth::id();
+
+        // Count tasks by status
+        $pendingCount = Task::where('user_id', $userId)->where('status', 'pending')->count();
+        $inProgressCount = Task::where('user_id', $userId)->where('status', 'in-progress')->count();
+        $completedCount = Task::where('user_id', $userId)->where('status', 'completed')->count();
+
+        // Pass the counts to the view
+        return view('welcome', compact('pendingCount', 'inProgressCount', 'completedCount'));
+    }
 }
