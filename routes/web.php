@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AdminController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\TaskController;
 use Illuminate\Support\Facades\Route;
@@ -16,8 +17,10 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::resource('/tasks', TaskController::class);
+Route::resource('/tasks', TaskController::class)->middleware(['auth', 'verified']);
 
 
 require __DIR__.'/auth.php';
+
+Route::get('admin/dashboard', [AdminController::class, 'index'])->middleware(['auth', 'admin']);
 
